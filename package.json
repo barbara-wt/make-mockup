@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "start": "budo --live --open --watch-glob='**/*.{html,css,svg}'"
+  },
   "devDependencies": {
     "budo": "^9.2.1"
   }
