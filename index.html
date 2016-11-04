@@ -27,9 +27,9 @@
     // SVG
     fetch(
       'mockup.svg'
-    ).then(response => {
-      return response.text()
-    }).then(svgContent => {
+    ).then(response => (
+      response.text()
+    )).then(svgContent => {
       // Inject SVG
       const svgMarkup = (svgContent
         .replace(/<\?.*?\?>/g, '')
@@ -37,10 +37,10 @@
       );
       const main = document.querySelector('main');
       main.innerHTML = svgMarkup;
-      
+
       // Functions
       const svg = main.querySelector('svg');
-      
+
       window.goto = (id) => {
         const page = svg.getElementById(id);
         const width = page.getAttribute('width');
