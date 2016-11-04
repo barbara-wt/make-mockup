@@ -53,6 +53,16 @@
           width,
           height,
         ].join(' '));
+
+        // Track history
+        window.location.hash = `#/${id}`;
+      }
+
+      // Restore page from URL
+      const hash = window.location.hash;
+      const hashRoute = /^#\//;
+      if (hashRoute.test(hash)) {
+        window.goto(hash.replace(hashRoute, ''));
       }
     });
   </script>
