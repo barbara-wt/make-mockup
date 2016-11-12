@@ -27,7 +27,7 @@
 <body>
   <main></main>
 
-  <script>
+  <script>{
     // third-party snippets
 
     /*! Based on tiny Js Pub/Sub
@@ -35,7 +35,7 @@
      * Copyright (c) Ben Alman, Anas Nakawa, Tomek Wiszniewski
      * MIT License
      */
-    window.events = (() => {
+    const events = (() => {
       const cache = {};
 
       return {
@@ -92,5 +92,5 @@
         window.goto(hash.replace(hashRoute, ''));
       }
     });
-  </script>
+  }</script>
 </body>
