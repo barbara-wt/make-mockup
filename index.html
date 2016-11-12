@@ -37,16 +37,17 @@
      */
     const events = (() => {
       const cache = {};
+      const target = document.createElement('span');
 
       return {
         send: (event, data) => {
           (cache[event] = cache[event] || new Event(event)).data = data;
-          dispatchEvent(cache[event]);
+          target.dispatchEvent(cache[event]);
         },
 
-        listen: addEventListener,
+        listen: (name, listener) => target.addEventListener(name, listener),
 
-        forget: removeEventListener,
+        forget: (name, listener) => target.removeEventListener(name, listener),
       };
     })();
 
