@@ -28,7 +28,30 @@
   <main></main>
 
   <script>
-    // SVG
+    // third-party snippets
+
+    /*! Based on tiny Js Pub/Sub
+     * http://anasnakawa.com/
+     * Copyright (c) Ben Alman, Anas Nakawa, Tomek Wiszniewski
+     * MIT License
+     */
+    window.mailbox = (() => {
+      const events = {};
+
+      return {
+        send: (address, data) => {
+          (events[address] = events[address] || new Event(address)).data = data;
+          dispatchEvent(events[address]);
+        },
+
+        listen: addEventListener;
+
+        forget: removeEventListener;
+      };
+    })();
+
+
+    // the SVG
     fetch(
       'mockup.svg'
     ).then(response => (
