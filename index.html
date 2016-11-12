@@ -35,13 +35,13 @@
      * Copyright (c) Ben Alman, Anas Nakawa, Tomek Wiszniewski
      * MIT License
      */
-    window.mailbox = (() => {
-      const events = {};
+    window.events = (() => {
+      const cache = {};
 
       return {
-        send: (address, data) => {
-          (events[address] = events[address] || new Event(address)).data = data;
-          dispatchEvent(events[address]);
+        send: (event, data) => {
+          (cache[event] = cache[event] || new Event(event)).data = data;
+          dispatchEvent(cache[event]);
         },
 
         listen: addEventListener;
