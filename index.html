@@ -69,6 +69,12 @@
       const svg = main.querySelector('svg');
 
       window.goto = (id) => {
+        // Notify others
+        const previousIdMatches = window.location.hash.match(/^#\/(.+)$/);
+        if (previousIdMatches) {
+          events.send(`leave-${previousIdMatches[1]}`);
+        }
+
         const page = svg.getElementById(id);
         const width = page.getAttribute('width');
         const height = page.getAttribute('height');
@@ -83,6 +89,9 @@
 
         // Track history
         window.location.hash = `#/${id}`;
+
+        // Notify others
+        events.send(`visit-${id}`);
       }
 
       // Restore page from URL
