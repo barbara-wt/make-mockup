@@ -112,6 +112,18 @@
         }
       });
 
+      // implant
+      const vw = (px) => (
+        `${px / window.innerWidth * 100}vw`
+      );
+      const implant = (({element, boundary}) => {
+        const size = boundary.getBoundingClientRect();
+        element.style.width = vw(size.width);
+        element.style.height = vw(size.height);
+        element.style.top = vw(size.top);
+        element.style.left = vw(size.left);
+      });
+
       /* ────────────────── CUSTOM SCRIPTS BELOW THIS LINE ────────────────── */
       /* ────────────────── CUSTOM SCRIPTS ABOVE THIS LINE ────────────────── */
     });
