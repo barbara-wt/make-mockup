@@ -34,6 +34,13 @@
   <!-- ─────────────────── CUSTOM MARKUP ABOVE THIS LINE ─────────────────── -->
 
   <script>{
+    /* ──────────────────────── ⬇︎ CONFIGURATION ⬇︎ ───────────────────────── */
+
+    const OPTIMAL_WIDTH = 1366;
+
+    /* ──────────────────────── ⬆︎ CONFIGURATION ⬆︎ ───────────────────────── */
+
+
     // third-party snippets
 
     /*! Based on tiny Js Pub/Sub
@@ -56,6 +63,18 @@
         forget: (name, listener) => target.removeEventListener(name, listener),
       };
     })();
+
+
+    // responsive
+    const style = document.querySelector('head style');
+    style.textContent += `
+      @media all and (min-width: ${OPTIMAL_WIDTH}px) {
+        main > svg {
+          width: ${OPTIMAL_WIDTH}px;
+          margin: 0 auto;
+        }
+      }
+    `;
 
 
     // the SVG
