@@ -98,9 +98,13 @@
       // Restore page from URL
       const hash = window.location.hash;
       const hashRoute = /^#\//;
-      if (hashRoute.test(hash)) {
-        window.goto(hash.replace(hashRoute, ''));
-      }
+      setTimeout(() => {
+        if (hashRoute.test(hash)) {
+          window.goto(hash.replace(hashRoute, ''));
+        } else {
+          window.goto('page-1');
+        }
+      });
     });
   }</script>
 </body>
